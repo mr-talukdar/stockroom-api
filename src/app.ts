@@ -1,5 +1,6 @@
 import express from "express";
 import type { NextFunction, Request, Response } from "express";
+import { router } from "./routes/routes";
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.get("/health/", (req: Request, res: Response) => {
   });
 });
 
+app.use(router);
 //Catch all nonexisting routes
 
 app.use((req, res, next) => {
